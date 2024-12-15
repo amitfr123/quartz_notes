@@ -3,6 +3,7 @@ title: Stuff To Read
 draft: false
 description: List of stuff to read with random order.
 ---
+## The List
 * http://www.usingcsp.com/ - threading with a different mathematical approach.
 * https://en.wikipedia.org/wiki/STREAMS - System V IO implementation.
 * https://en.wikipedia.org/wiki/Alef_(programming_language) - plan9 languages rabbit hole.
