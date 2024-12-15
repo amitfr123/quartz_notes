@@ -3,10 +3,4 @@ title: Quartz Notes
 ---
 Notes about random things.
 
-[[Stuff To Read]]
-
-sheesh.
-
-[[Practical Binary Analysis]]
-
-wow.
+This is an example for links like [[Stuff To Read|To Read|]] or this [[Practical Binary Analysis | book summary]].
