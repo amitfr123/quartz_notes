@@ -7,6 +7,4 @@ Notes about random things.
 
 sheesh.
 
-[[Practical Binary Analysis]]
-
 wow.
