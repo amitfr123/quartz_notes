@@ -3,6 +3,7 @@ title: Lexical analysis(scanning)
 draft: false
 description: Summary on lexical analysis and practical implementation
 ---
+> [!info] Incomplete article head
 # Overview
 Lexical analysis (also called scanning) is the act of taking a stream of character and separating it into the programming language tokens.
 This action is done by defining a **lexical grammar** which is a [[Formal Languages#Formal grammar|formal grammar]] and is usually implemented as a [[Formal Languages#Regular grammar|regular grammar]]. **The lexical grammar defines the syntax of the tokens.**

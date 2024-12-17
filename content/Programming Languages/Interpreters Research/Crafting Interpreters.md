@@ -2,9 +2,8 @@
 title: Crafting Interpreters
 draft: false
 description: Summary of Crafting Interpreters by Robert Nystrom.
-tags:
-  - incomplete
 ---
+> [!info] Incomplete article head
 # Interpreter basics
 ## The components of an interpreter
 1) **[[Lexical Analysis(Scanning)]]** - Taking a linear stream of characters and separating them to separate tokens.

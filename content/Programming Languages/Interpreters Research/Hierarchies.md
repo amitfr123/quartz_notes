@@ -2,9 +2,8 @@
 title: Hierarchies
 draft: false
 description: Summary on different types of hierarchies
-tags:
-  - incomplete
 ---
+> [!info] Incomplete article head
 # Knowledge sources
 * [Hierarchy wiki article](https://en.wikipedia.org/wiki/Hierarchy)
 

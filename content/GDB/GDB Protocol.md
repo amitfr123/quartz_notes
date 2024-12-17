@@ -2,9 +2,8 @@
 title: GDB Protocol
 draft: false
 description: Documentation on the GDB protocol, to help implement a GDB stub.
-tags:
-  - incomplete
 ---
+> [!info] Incomplete article head
 
 # Packet structure
 GDB requests and responses are contained within a packet structure:

@@ -2,9 +2,8 @@
 title: Formal Languages
 draft: false
 description: Summary on Formal Languages
-tags:
-  - incomplete
 ---
+> [!info] Incomplete article head
 # Knowledge sources
 * [Formal language wiki article](https://en.wikipedia.org/wiki/Formal_language)
 * [Regular language wiki article](https://en.wikipedia.org/wiki/Regular_language)

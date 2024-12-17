@@ -2,9 +2,8 @@
 title: Chomsky Hierarchy
 draft: false
 description: Summary document on Chomsky Hierarchy
-tags:
-  - incomplete
 ---
+> [!info] Incomplete article head
 # Context needed before:
 1) [[Formal Languages]]
 2) [[Hierarchies]]
