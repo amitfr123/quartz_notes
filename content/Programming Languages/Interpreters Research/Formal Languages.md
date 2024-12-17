@@ -48,10 +48,10 @@ The language consists of strings achieved by this process.
 Assuming an alphabet $\Sigma=\{a,b\}$, non-terminal set $N=\{S\}$ and the start symbol $S$.
 With the following production rules:
 $$
-S \to aSb
-$$
-$$
+\displaylines{
+S \to aSb \\
 S \to ba
+}
 $$
 We can develop the string we the following sequence.
 $$
@@ -72,19 +72,13 @@ Regular grammar is a grammar that is **right-regular** or **left-regular** and i
 ### Example of a regular grammar
 In order to describe the language $\{a^nb^m|m,n\geq{1}\}$. We can use the grammar $G$ with $N=\{S,A,B\},\Sigma=\{a,b\}$ and the start symbol $S$ and the following production rules:
 $$
-S \to aA
-$$
-$$
-A \to aA
-$$
-$$
-A \to bB
-$$
-$$
-B \to bB
-$$
-$$
+\displaylines{
+S \to aA \\
+A \to aA \\
+A \to bB \\
+B \to bB \\
 B \to \epsilon
+}
 $$
 Note [^3].
 We can develop the string we the following sequence.
@@ -106,13 +100,11 @@ When using regular languages we have a set of basic operations:
 Given 2 regular languages $L_{1}$ and $L_{2}$, then $L=L_{1}\cup{L_{2}}$ is also a regular language.
 
 $$
-L_{1} = \{a,ba\}
-$$
-$$
-L_{2} = \{ab,ba,b\}
-$$
-$$
+\displaylines{
+L_{1} = \{a,ba\} \\
+L_{2} = \{ab,ba,b\} \\
 L=L_{1}\cup{L_{2}} = \{a, ab,ba,b\}
+}
 $$
 ### Complement
 If **L** is a regular language, then $\overline{L}$ is also a regular language.
@@ -123,19 +115,20 @@ If $L_{1}$ and $L_{2}$ are regular languages, then the new language $L=L_{1}\cap
 If $L_{1}$ and $L_{2}$ are regular languages, then the new language $L=L_{1}-{L_{2}}$ is also a regular language.
 ### Concatenation
 If $L_{1}$ and $L_{2}$ are regular languages, then the concatenation of the two ($L=L_{1}\cdot{L_{2}}$) is a regular language.
-$$L=L_{1}\cdot{L_{2}}$$
 $$
+\displaylines{
+L=L_{1}\cdot{L_{2}} \\
 L = (x|x=x_{i}y_{j}, x_{i}\in{L_{1}}, y_{i}\in{L_{2}})
+}
 $$
 ### Closure R* (Kleene star)
 If $L$ is regular language, then $L^{*}$ is the language comprised of all the possible concatenation 0 or more words.
 $$
-L = {a,b}
-$$
-$$
+\displaylines{
+L = {a,b} \\
 L^{*} = \epsilon\cup L\cup L\cdot L\cup L\cdot L\cdot L\dots
+}
 $$
-
 ### String homomorphism
 If $L$ is a regular language and $h$ is a homomorphism on its alphabet then $L_{h}=h(L) = \{h(w) | w\in L\}$ is also a regular language.
 

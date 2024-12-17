@@ -10,7 +10,7 @@ description: Summary document on Chomsky Hierarchy
 # Knowledge sources
 * [Chomsky hierarchy wiki article](https://en.wikipedia.org/wiki/Chomsky_hierarchy)
 
-# The heirarchy
+# The hierarchy
 ![[set_inclusions_chomsky_hierarchy.png]]
 
 The Chomsky hierarchy us a containment hierarchy of classes of formal grammars.

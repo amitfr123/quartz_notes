@@ -6,8 +6,8 @@ description: Summary of Practical Binary Analysis book by Dennis Andriesse.
 # Anatomy of a binary
 ## The C Compilation Process
 This chapter of the book describes a rough overview of the `gcc` compilation process.
-1. The Pre-processing Phase - in this phase macros like `#define` and `#include` are resolved. To view this stage you can use the `-E` flag when using`gcc`.
-2. The Compilation Phase - in this phase the code is compiled into assembly in a human readable format ie with symbolic information (like the usage of function names). To view the output of this phase you can use the `-S` flag when using`gcc`.
+1. The Preprocessing Phase - in this phase macros like `#define` and `#include` are resolved. To view this stage you can use the `-E` flag when using`gcc`.
+2. The Compilation Phase - in this phase the code is compiled into assembly in a human readable format i.e. with symbolic information (like the usage of function names). To view the output of this phase you can use the `-S` flag when using`gcc`.
 3. The Assembly Phase - in this phase object files (`ELF` format) are generated. The object files contain proper assembly that can be executed. To view the output of this phase you can use the `-C` flag when using`gcc`.
 4. The Linking Phase - in this phase the object files are linked together to form a single executable/library.
 
@@ -39,7 +39,7 @@ This sections contain executable code that act like the constructors and destruc
 ### `.text`
 Contains the main code of the program. The section contains user defined code and code that is automatically added by the compiler. For example `gcc` will add functions like `_start`, `register_tm_clones`, `frame_dummy`.
 ### `.rodata`, `data` and `.bss`
-1. `.rodata` - is a readonly section that contains constant values.
+1. `.rodata` - is a read-only section that contains constant values.
 2. `.data` - contains writable variables that are initialized.
 3. `.bss` - represents uninitialized variables. because this section doesn't need to occupy space on the disk it is marked as `SHT_NOBITS` instead of `SHT_PROGBITS` like `data` and `.rodata`.
 ### `.plt`,`.got` and `.got.plt`

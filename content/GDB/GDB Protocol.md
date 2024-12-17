@@ -17,7 +17,7 @@ Most packets have the data represented by ASCII so each byte has 2 ASCII charact
 
 ### Escape
 For control characters like `'#','$','}'` need to be escaped:
-To escape you need to put the character `}` before it and XOR the original character value with 0x20.
+To escape you need to put the character `}` before it and XOR the original character value with $0x20$.
 
 ### Field separation
 All fields in a packet must be separated bu `',',';',':'`.
@@ -28,8 +28,8 @@ The RLE uses the character ___'*'___ and a printable ASCII character whose value
 
 Here is an example:
 `"A*!" == "AAAAA"`
-* 'A' is the repeating character.
-* '!' is 33 in ASCII so 33 - 28 is 5
+* `A`is the repeating character.
+* `!` is 33 in ASCII so $33 - 28 = 5$
 
 # Acknowledgment
 When either one of the peers sends a packet the receiver needs to send an ACK that tells the transmitter that the packet was received and if is was received in a valid state.
