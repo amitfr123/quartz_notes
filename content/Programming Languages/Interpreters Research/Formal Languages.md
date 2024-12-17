@@ -183,21 +183,32 @@ In order to describe the language $\{a^nb^nc^n|n\geq{1}\}$. We can use the gramm
 
 We can develop the string we the following sequence (arrow number denotes the corresponding rule).
 $$
-S
+\displaylines{
+S \\
+\to_{2} \pmb {aSBC} \\
+\to_{2} a\pmb{aSBC}BC \\
+\to_{1} aa\pmb {aBC}BCBC \\
+\to_{3} aaaB\pmb {CZ}CBC \\
+\to_{4} aaaB\pmb {WZ}CBC \\
+\to_{5} aaaB\pmb {WC}CBC \\
+\to_{6} aaaB\pmb {BC}CBC \\
+\to_{3} aaaBBC\pmb {CZ}C \\
+\to_{4} aaaBBC\pmb {WZ}C \\
+\to_{5} aaaBBC\pmb {WC}C \\
+\to_{6} aaaBBC\pmb {BC}C \\
+\to_{3} aaaBB\pmb {CZ}CC \\
+\to_{4} aaaBB\pmb {WZ}CC \\
+\to_{5} aaaBB\pmb {WC}CC \\
+\to_{6} aaaBB\pmb {BC}CC \\
+\to_{7} aa\pmb {ab}BBCCC \\
+\to_{8} aaa\pmb {bb}BCCC \\
+\to_{8} aaab\pmb {bb}CCC \\
+\to_{9} aaabb\pmb {bc}CC \\
+\to_{10} aaabbb\pmb {cc}C \\
+\to_{10} aaabbbc\pmb {cc}
+}
 $$
-$$\to_{2} \pmb {aSBC}$$$$\to_{2} a\pmb{aSBC}BC$$$$\to_{1} aa\pmb {aBC}BCBC$$$$\to_{3} aaaB\pmb {CZ}CBC$$$$\to_{4} aaaB\pmb {WZ}CBC$$
-$$\to_{5} aaaB\pmb {WC}CBC$$$$\to_{6} aaaB\pmb {BC}CBC$$$$\to_{3} aaaBBC\pmb {CZ}C$$$$\to_{4} aaaBBC\pmb {WZ}C$$$$\to_{5} aaaBBC\pmb {WC}C$$
-$$\to_{6} aaaBBC\pmb {BC}C$$
-$$\to_{3} aaaBB\pmb {CZ}CC$$
-$$\to_{4} aaaBB\pmb {WZ}CC$$
-$$\to_{5} aaaBB\pmb {WC}CC$$
-$$\to_{6} aaaBB\pmb {BC}CC$$
-$$\to_{7} aa\pmb {ab}BBCCC$$
-$$\to_{8} aaa\pmb {bb}BCCC$$
-$$\to_{8} aaab\pmb {bb}CCC$$
-$$\to_{9} aaabb\pmb {bc}CC$$
-$$\to_{10} aaabbb\pmb {cc}C$$
-$$\to_{10} aaabbbc\pmb {cc}$$
+
 # Recursively enumerable language(RE)
 **To be continued.**
 
