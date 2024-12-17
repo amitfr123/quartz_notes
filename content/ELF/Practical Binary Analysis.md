@@ -2,6 +2,8 @@
 title: Practical Binary Analysis
 draft: false
 description: Summary of Practical Binary Analysis book by Dennis Andriesse.
+tags:
+  - incomplete
 ---
 ## Anatomy of a binary
 ### The C Compilation Process
