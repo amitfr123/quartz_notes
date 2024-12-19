@@ -30,11 +30,113 @@ Here are a couple of examples for this definitions:
 |         Binary         |    0,1    |   01001,1111   |       -       |     |
 |      Odd integers      |   0->9    |   1,3,21,889   |    2,32,44    |     |
 | Lower case palindromes |   a->z    | aba, aa, czdzc | av,var,hello  |     |
+# Known symbols
+* $W$ - a word.
+* $\epsilon$ - an empty word.
+* $\Sigma$ - set of words (an alphabet).
+* $L$ - a language.
+* $\emptyset$ - an empty language ($\emptyset = \{\}$). 
+
 # Formal grammar
 Formal grammar describes which words are valid according to the language's syntax. Grammar mainly consists of a set of [[#Production rules|production rules]].
 The other components are a finite set $N$ of **non-terminal symbols**[^1], a finite set $\Sigma$ (the alphabet) of **terminal symbols**[^2] and a start symbol $S$ which is a non-terminal symbol $S\in N$.
 
-**The letter $\epsilon$ is used to denote a terminal empty string\\symbol.**[^3]
+## Formal Language Operations
+When using formal languages we have a set of basic operations:
+* Union
+* Complement
+* Intersection
+* Difference
+* Concatenation
+* Exponentiation
+* Kleene star
+* Kleene plus
+* String homomorphism[^3]
+* Inverse string homomorphism[^3]
+* Reversal
+### Closure Property
+Closure means that if we take 2 formal languages from the same type ([[#Regular language|Regular]], [[#Context-free language(CFL)|Context free]],[[#Context-sensitive language(CSL)|Context sensitive]], [[#Recursively enumerable language(RE)|Recursively enumerable]]), and preform an operation on them the result of that operation is a new language of the same type.
+This is also called **Closed** under an operation.
+#### Closure Table
+
+| Operation\language          | Regular | Context free | Context sensitive | Recursively enumerable |
+| --------------------------- | ------- | ------------ | ----------------- | ---------------------- |
+| Union                       | Closed  | Closed       | Closed            | Closed                 |
+| Complement                  | Closed  | Not closed   | Not closed        | Not closed             |
+| Intersection                | Closed  | Not closed   | Closed            | Closed                 |
+| Difference                  | Closed  | Not closed   | Not closed        | Not closed             |
+| Concatenation               | Closed  | Closed       | Closed            | Closed                 |
+| Exponentiation              | Closed  | Closed       | Closed            | Closed                 |
+| Kleene star                 | Closed  | Closed       | Closed            | Closed                 |
+| Kleene plus                 | Closed  | Closed       | Closed            | Closed                 |
+| String homomorphism         | Closed  | Closed       | Closed            | Closed                 |
+| Inverse string homomorphism | Closed  | Closed       | Closed            | Closed                 |
+| Reversal                    | Closed  | Closed       | Closed            | Closed                 |
+
+### Union
+Given 2 formal languages $L_{1}$ and $L_{2}$, then $L=L_{1}\cup{L_{2}}$ is also a formal language.
+
+$$
+\displaylines{
+L_{1} = \{a,ba\} \\
+L_{2} = \{ab,ba,b\} \\
+L=L_{1}\cup{L_{2}} = \{a, ab,ba,b\}
+}
+$$
+### Complement
+If **L** is a formal language, then $\overline{L}$ is also a regular language.
+
+### Intersection
+If $L_{1}$ and $L_{2}$ are formal languages, then the new language $L=L_{1}\cap{L_{2}}$ is also a formal language.
+### Difference
+If $L_{1}$ and $L_{2}$ are formal languages, then the new language $L=L_{1}-{L_{2}}$ is also a formal language.
+### Concatenation
+If $L_{1}$ and $L_{2}$ are formal languages, then the concatenation of the two ($L=L_{1}\cdot{L_{2}}$) is a formal language.
+$$
+\displaylines{
+L=L_{1}\cdot{L_{2}} \\
+L = (x|x=x_{i}y_{j}, x_{i}\in{L_{1}}, y_{i}\in{L_{2}})
+}
+$$
+### Exponentiation (Power)
+If $L$ is formal language, then $L^{n}$ is a formal language comprised of $L$ concatenated with itself $n$ times.
+$$
+\displaylines{
+L^{0} = {\epsilon} \\
+L^{n+1} = L^{n+1} \cdot L
+}
+$$
+### Kleene star (Closure R* )
+If $L$ is formal language, then $L^{*}$ is a formal language comprised of all the possible concatenation 0 or more words.
+$$
+\displaylines{
+\begin{aligned}
+L^{*} &= \bigcup _{i\geq 0}L^{i} \\
+&= \epsilon\cup L^{1}\cup L^{2}\cup L^{3}\dots
+\end{aligned}
+}
+$$
+**It should be noted that $\emptyset^{*}=\{\epsilon\}$.**
+### Kleene plus
+If $L$ is formal language, then $L^{+}$ is a formal language comprised of all the possible concatenation 1 or more words.
+$$
+\displaylines{
+\begin{aligned}
+L^{+} &= \bigcup _{i\geq 1}L^{i} \\
+&= L^{1}\cup L^{2}\cup L^{3}\dots
+\end{aligned}
+}
+$$
+**It should be noted that $\emptyset^{+}=\{\}$.**
+### String homomorphism
+If $L$ is a formal language and $h$ is a homomorphism on its alphabet then $L_{h}=h(L) = \{h(w) | w\in L\}$ is also a formal language.
+
+### Inverse string homomorphism
+If $L_{h}$ is a formal language and is the result of applying $h$ (a homomorphism) on an alphabet of a formal language then $L=h^{-1}(L_{h}) = \{w | h(w)\in L\}$ is also a formal language.
+
+### Reversal
+Given formal language $L$ then $L^R$ is the set of all the strings in $L$ reversed and is also a formal language.
+
 ## Production rules
 A production rule is a rewrite rule (rule specifying when to replace a string with another), specifying a symbol substitution that can be recursively performed to generate new symbol sequences.
 **A set of finite production rules is the main component of formal grammar.**
@@ -80,63 +182,10 @@ B \to bB \\
 B \to \epsilon
 }
 $$
-Note [^3].
 We can develop the string we the following sequence.
 $$
 S\to aA\to aaA\to aabB\to aab
 $$
-## Operations
-When using regular languages we have a set of basic operations:
-* Union
-* Complement
-* Intersection
-* Difference
-* Concatenation
-* Closure R*
-* String homomorphism[^4]
-* Inverse string homomorphism[^4]
-* Reversal
-### Union
-Given 2 regular languages $L_{1}$ and $L_{2}$, then $L=L_{1}\cup{L_{2}}$ is also a regular language.
-
-$$
-\displaylines{
-L_{1} = \{a,ba\} \\
-L_{2} = \{ab,ba,b\} \\
-L=L_{1}\cup{L_{2}} = \{a, ab,ba,b\}
-}
-$$
-### Complement
-If **L** is a regular language, then $\overline{L}$ is also a regular language.
-
-### Intersection
-If $L_{1}$ and $L_{2}$ are regular languages, then the new language $L=L_{1}\cap{L_{2}}$ is also a regular language.
-### Difference
-If $L_{1}$ and $L_{2}$ are regular languages, then the new language $L=L_{1}-{L_{2}}$ is also a regular language.
-### Concatenation
-If $L_{1}$ and $L_{2}$ are regular languages, then the concatenation of the two ($L=L_{1}\cdot{L_{2}}$) is a regular language.
-$$
-\displaylines{
-L=L_{1}\cdot{L_{2}} \\
-L = (x|x=x_{i}y_{j}, x_{i}\in{L_{1}}, y_{i}\in{L_{2}})
-}
-$$
-### Closure R* (Kleene star)
-If $L$ is regular language, then $L^{*}$ is the language comprised of all the possible concatenation 0 or more words.
-$$
-\displaylines{
-L = {a,b} \\
-L^{*} = \epsilon\cup L\cup L\cdot L\cup L\cdot L\cdot L\dots
-}
-$$
-### String homomorphism
-If $L$ is a regular language and $h$ is a homomorphism on its alphabet then $L_{h}=h(L) = \{h(w) | w\in L\}$ is also a regular language.
-
-### Inverse string homomorphism
-If $L_{h}$ is a regular language and is the result of applying $h$ (a homomorphism) on an alphabet of a regular language then $L=h^{-1}(L_{h}) = \{w | h(w)\in L\}$ is also a regular language.
-
-### Reversal
-Given regular language $L$ then $L^R$ is the set of all the strings in $L$ reversed and is also a regular language.
 
 ## Generalized regular expressions
 In practice regular expressions extend this basic operations and use meta-symbols like: "|", "\*", ".".
@@ -149,7 +198,7 @@ This types of languages are used in many applications for example arithmetic exp
 
 ## Context-free grammar(CFG)
 Context-free grammar is defined as a formal grammar whose production rules can be applied to a non-terminal symbol[^1] regardless of its context.
-This means that each production rule follows the form $A\to a$ where $A\in N$ and a is a string comprised of terminal[^2] and non-terminal symbols[^1] (may also be $\epsilon$[^3]).
+This means that each production rule follows the form $A\to a$ where $A\in N$ and a is a string comprised of terminal[^2] and non-terminal symbols[^1] (may also be $\epsilon$).
 
 **For an example of context-free grammar look at the example in [[#String generation example]].**
 A popular way for context-free grammar notation is [BNF](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form).
@@ -159,7 +208,7 @@ Context-sensitive languages are languages that are generated by [[#Context-sensi
 ## Context-sensitive grammar(CSG)
 Context-sensitive grammar is defined as a formal grammar whose production rules can be surrounded by a context of terminal[^2] and non-terminal symbols[^1].
 
-It is easier to explain it as a distinction from [[#Context-free grammar]] as instead of each rule forms $A\to a$ there is a context element described as $aAb\to a\lambda b$ where $a$ and $b$ and $\lambda$ are strings comprised of terminal[^2] and non-terminal symbols[^1] ($\lambda$ may not be $\epsilon$[^3]). This means that the rule only applies if the context surrounding $A$ is correct.
+It is easier to explain it as a distinction from [[#Context-free grammar]] as instead of each rule forms $A\to a$ there is a context element described as $aAb\to a\lambda b$ where $a$ and $b$ and $\lambda$ are strings comprised of terminal[^2] and non-terminal symbols[^1] ($\lambda$ may not be $\epsilon$). This means that the rule only applies if the context surrounding $A$ is correct.
 
 ### Example of a context-sensitive grammar
 In order to describe the language $\{a^nb^nc^n|n\geq{1}\}$. We can use the grammar $G$ with $N=\{S,A,B,C,W,Z\},\Sigma=\{a,b,c\}$ and the start symbol $S$ and the following production rules:
@@ -208,5 +257,4 @@ $$
 # Footnotes
 [^1]: Non-terminal symbols - symbols that can be replaced also called syntactic variables.
 [^2]: Terminal symbols - symbols that may appear in the output of production rules and cannot be changed by the rules of the grammar this symbols comprise the alphabet.
-[^3]: The symbol $\epsilon$ denotes an empty string.
-[^4]: String homomorphism means that each character in the alphabet is replaced by a single string.
+[^3]: String homomorphism means that each character in the alphabet is replaced by a single string.

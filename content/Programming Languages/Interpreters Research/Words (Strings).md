@@ -1,10 +1,10 @@
 ---
-title: Words
+title: Words (Strings)
 draft: false
 description: Short summary on words and operation definitions
 ---
 # Definition of a word
-A word (string) is finite set of a specific alphabet symbols.
+A word (string) is finite set of a specific alphabet symbols. $\epsilon$ denotes an empty word.
 Go to [[Formal Languages#Basic definitions|formal languages basic definitions]] for examples and more background.
 
 # Operations
@@ -19,7 +19,7 @@ W&=W_{1}\cdot{W_{2}} \\
 \end{aligned}
 }
 $$
-### Power
+### Exponentiation (Power)
 If $W$ is a word, then $W^{n}$ is the concatenation of the word W $n$ times.
 $$
 \displaylines{
