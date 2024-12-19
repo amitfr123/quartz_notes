@@ -15,7 +15,7 @@ __getitem__(self, pos) => obj[pos]
 ```
 
 By implementing special methods we gain the following benefits:
-* Standardizing the api for our clases.
+* Standardizing the API for our classes.
 * Allow support for STD.
 * Gain advanced features by implementing the basic building blocks for them. For example implementing `__getitem__` gives us support for __slicing and iterating__ on our object.
 

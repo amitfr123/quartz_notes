@@ -18,7 +18,7 @@ description: Summary on Formal Languages
 # Basic definitions
 * Symbol - the basic building block, typically a character or a digit.
 * Alphabet - a finite set of symbols.
-* Words (strings) - a finite set of a specific alphabet symbols.
+* Words (strings) - a finite set of a specific alphabet symbols. See [[Words (Strings)]] for more information.
 * Formal language - a set of assembled strings (derived from the same alphabet) according to a specific set of rules.
 * Formal grammar - describes which words are valid according to the language's syntax (rules).
 
