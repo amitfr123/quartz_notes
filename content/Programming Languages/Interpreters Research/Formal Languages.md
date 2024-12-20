@@ -1,7 +1,7 @@
 ---
 title: Formal Languages
 draft: false
-description: Summary on Formal Languages
+description: Summary on formal languages
 ---
 > [!info] Incomplete article head
 # Knowledge sources
