@@ -8,7 +8,7 @@ description: Summary on automata theory and different types of automata
 2) [[Formal Languages]]
 # Abstract Machines
 An abstract machine is a theoretical model used to analyse how a computer works. Abstract machines are similar to mathematical functions as they receive an input and produce an output based on predefined rules.
-They are called **abstract** as they ignore hardware, and **machines** because they perform step by step execution typically characterized by changes of state.
+They are called abstract as they ignore hardware, and machines because they perform step by step execution typically characterized by changes of state.
 
 ## Deterministic vs Non-Deterministic
 Deterministic abstract machines are models that for a given input will always produce the same output is the same manner (there is no randomness or variation). 
@@ -58,16 +58,16 @@ where:
 
 # Automata Types
 ## Finite State Automaton (FSA)
-When an `automaton` set of state ($Q$) is finite it is called a `finite state automaton (FSA)` or `finite state machine (FSM)`.
-There are 2 types of `FSA`:
+When an automaton set of state ($Q$) is finite it is called a finite state automaton (FSA) or finite state machine (FSM).
+There are 2 types of FSA:
 * [[#Deterministic Finite State Automaton (DFSA)]]
 * [[#Non-Deterministic Finite State Automaton (NFSA)]]
-`FSA automaton` are capable of accepting [[Formal Languages#Regular language|regular languages]].
+FSA automaton are capable of accepting [[Formal Languages#Regular language|regular languages]].
 ### Deterministic Finite State Automaton (DFSA)
-`DFSA` (also called `DFA`,`DFM`,`DFSM`) is type of `FSA` that is [[#Deterministic vs Non-Deterministic|deterministic]].
+DFSA (also called DFA,DFM,DFSM) is type of FSA that is [[#Deterministic vs Non-Deterministic|deterministic]].
 
 #### DFSA Acceptor Example
-Here is an example for an accpetor `DFSA` whose input is binary representation of a number and accepts it only if it is a multiple of 3:
+Here is an example for an accpetor DFSA whose input is binary representation of a number and accepts it only if it is a multiple of 3:
 ![[dfa_example_multiplies_of_3.svg.png]]
 The way it works is by keeping track of the reminder $r$ and the next input bit $i$.
 * $S_{0}$ is $r = 0$.
@@ -126,11 +126,11 @@ bool is_mult_of_3(bool* bit_array, unsigned array_size) {
 ```
 
 ### Non-Deterministic Finite State Automaton (NFSA)
-`NFSA` (also called `NFA`,`NFM`,`NFSM`) is type of `FSA` that is [[#Deterministic vs Non-Deterministic|non-deterministic]].
+NFSA (also called NFA,NFM,NFSM) is type of FSA that is [[#Deterministic vs Non-Deterministic|non-deterministic]].
 #### NFSA Acceptor Formal Definition
-`NFSA` `acceptor` $M$ can be represented by $M = (\Sigma,Q,q_{0},F,\delta)$ where $\delta$ is redefined as $\delta : Q \times \Sigma \rightarrow P(Q)$  ($P(Q)$ is a [[Set#Powerset|powerset]] of $Q$). This means that when calculating the next state there could be multiple options.
+NFSA acceptor $M$ can be represented by $M = (\Sigma,Q,q_{0},F,\delta)$ where $\delta$ is redefined as $\delta : Q \times \Sigma \rightarrow P(Q)$  ($P(Q)$ is a [[Set#Powerset|powerset]] of $Q$). This means that when calculating the next state there could be multiple options.
 ##### NFSA $\epsilon$ moves
-It should be noted that any `NFSA` that uses $\epsilon$ moves can be reconstructed to not contain $\epsilon$ moves. I.e. for $L(M_{\epsilon})$ where `automaton` $M_{\epsilon}$ uses $\epsilon$ moves there is an `automaton` $M$ that does not contain $\epsilon$ moves that can accept $L$. 
+It should be noted that any NFSA that uses $\epsilon$ moves can be reconstructed to not contain $\epsilon$ moves. I.e. for $L(M_{\epsilon})$ where automaton $M_{\epsilon}$ uses $\epsilon$ moves there is an automaton $M$ that does not contain $\epsilon$ moves that can accept $L$. 
 This is done by changing $\delta_{\epsilon}$ to $\delta$:
 $$
 \delta(q,c\in{\Sigma})=\bigcup_{q'\in{CL^{\epsilon}(q)}}CL^{\epsilon}(\delta_{\epsilon}(q',c))
@@ -147,10 +147,10 @@ F_{\epsilon} & \text{otherwise}
 $$
 
 #### Powerset Construction
-`Powerset construction` is a standard method to convert `NFSA` to `DFSA`. Using this method any `NFSA` can be expressed instead using a `DFSA`.
+Powerset construction is a standard method to convert NFSA to DFSA. Using this method any NFSA can be expressed instead using a DFSA.
 Here are the steps of the algorithm:
- 1. We take the original `automaton` $M = (\Sigma,Q,q_{0},F,\delta)$.
- 2. We create a new `automaton` $M' = (\Sigma,Q',q_{0}',F',\delta')$.
+ 1. We take the original automaton $M = (\Sigma,Q,q_{0},F,\delta)$.
+ 2. We create a new automaton $M' = (\Sigma,Q',q_{0}',F',\delta')$.
 	 1. $Q'=P(Q)$.
 	 2. $q_{0}'=\{q_{0}\}$.
 	 3. $F'=\{S|S\subseteq{Q'},S\cap{F}\ne{\emptyset}\}$
@@ -159,13 +159,13 @@ Here are the steps of the algorithm:
 ##### Example
 For $L(M)$ with $\Sigma = \{a,b\}$ contain all of the strings that end with ab:
 $$L(M) = \{s \cdot ab|s\in{\Sigma^{*}}\}$$
-`NFSA automaton`:
+NFSA automaton:
 ![[powerset_construction_nfsa.png]]
-Can be changed to a `DFSA`:
+Can be changed to a DFSA:
 ![[powerset_construction_dfsa.png]]
 ### Closure Properties
-Because `NFSA` and `DFSA` are equivalent they share the same closure properties(see [[#Powerset Construction]]).
-`FSA` are closed on the following properties:
+Because NFSA and DFSA are equivalent they share the same closure properties(see [[#Powerset Construction]]).
+FSA are closed on the following properties:
 * Union
 * Complement
 * Intersection

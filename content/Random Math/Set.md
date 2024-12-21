@@ -6,12 +6,12 @@ description: Summary on set
 # Knowledge sources
 * [Set wiki article](https://en.wikipedia.org/wiki/Set_(mathematics))
 # Definition
-A `set` is a collection of different things that are usually called members or elements.
+A set is a collection of different things that are usually called members or elements.
 # Special sets
 ## Empty set
-An `empty set` (also called `null set`) is a set with no items and denoted with: $\emptyset$, $\{\}$.
+An empty set (also called null set) is a set with no items and denoted with: $\emptyset$, $\{\}$.
 ## Singleton set
-A `singleton set` (also called `unit set`) is a set with a single item and denoted with $\{x\}$.
+A singleton set (also called unit set) is a set with a single item and denoted with $\{x\}$.
 ## Special Number Subsets
 * $N$ - set of all natural numbers $N=\{0,1,2,3,\dots\}$
 * $Z$ - set of all integers $Z=\{\dots,-2,-1,0,1,2,\dots\}$
@@ -26,7 +26,7 @@ $$
 \overline{S}=\{a|a\in{U},a\notin{S}\}
 $$
 ## Union
-If $S_{1}$ and $S_{2}$ are sets then their `union` $S$ is a set that contains all of the members in $S_{1}$ or $S_{2}$.
+If $S_{1}$ and $S_{2}$ are sets then their union $S$ is a set that contains all of the members in $S_{1}$ or $S_{2}$.
 $$
 \displaylines{
 \begin{aligned}
@@ -36,7 +36,7 @@ S &= S_{1}\cup{S_{2}} \\
 }
 $$
 ## Intersection
-If $S_{1}$ and $S_{2}$ are sets then their `intersection` $S$ is a set that contains all of the members in $S_{1}$ and $S_{2}$.
+If $S_{1}$ and $S_{2}$ are sets then their intersection $S$ is a set that contains all of the members in $S_{1}$ and $S_{2}$.
 $$
 \displaylines{
 \begin{aligned}
@@ -46,7 +46,7 @@ S &= S_{1}\cap{S_{2}} \\
 }
 $$
 ## Difference
-If $S_{1}$ and $S_{2}$ are sets then their `difference` $S$ is a set that contains all of the members in $S_{1}$ that are not in $S_{2}$.
+If $S_{1}$ and $S_{2}$ are sets then their difference $S$ is a set that contains all of the members in $S_{1}$ that are not in $S_{2}$.
 $$
 \displaylines{
 \begin{aligned}
@@ -58,7 +58,7 @@ $$
 **The symbols $-$ may also be used instead of $\setminus$**.
 
 ## Symmetric Difference
-If $S_{1}$ and $S_{2}$ are sets then their `symmatric difference` $S$ is a set that contains all of the members in $S_{1}$ that are not in $S_{2}$ and all of the members in $S_{2}$ that are not in $S_{1}$.
+If $S_{1}$ and $S_{2}$ are sets then their symmetric difference $S$ is a set that contains all of the members in $S_{1}$ that are not in $S_{2}$ and all of the members in $S_{2}$ that are not in $S_{1}$.
 $$
 \displaylines{
 \begin{aligned}
@@ -69,7 +69,7 @@ S &= S_{1}\Delta{S_{2}} \\
 }
 $$
 ## Cartesian Product
-If $S_{1}$ and $S_{2}$ are sets then their `cartesian product` $S$ is a set that contains all of the ordered pairs of members in $S_{1}$ and $S_{2}$.
+If $S_{1}$ and $S_{2}$ are sets then their cartesian product $S$ is a set that contains all of the ordered pairs of members in $S_{1}$ and $S_{2}$.
 $$
 \displaylines{
 \begin{aligned}
@@ -84,7 +84,7 @@ $$
 n=|S|
 $$
 # Powerset
-A `powerset` of set $S$ is a set of all subsets of $S$ including $\emptyset$ and $S$ and is symbolized by $P(S)$. If $|S|=n$ then $|P(S)|=2^{n}$.
+A powerset of set $S$ is a set of all subsets of $S$ including $\emptyset$ and $S$ and is symbolized by $P(S)$. If $|S|=n$ then $|P(S)|=2^{n}$.
 Here is an example:
 $$
 \displaylines{
