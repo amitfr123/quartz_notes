@@ -167,6 +167,7 @@ Regular language is a class of formal languages that can be defined using regula
 Regular languages help us solve 2 problems:
 * Specification - how do we have a complete definition for a formal language.
 * Recognition - given language **L** and a word **W** how do we check if: $$W\in{L}$$
+An alternative definition is that language $L$ is called regular if there a [[Automata#Automata Types#Finite State Automaton (FSA)|FSA automaton]] that accepts it.
 **It should be noted that tools like Yacc,Bison and Flex may be used to create regular languages for programming.**
 
 ## Regular grammar

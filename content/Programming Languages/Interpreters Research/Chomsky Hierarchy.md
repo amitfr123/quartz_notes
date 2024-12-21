@@ -5,8 +5,9 @@ description: Summary document on Chomsky Hierarchy
 ---
 > [!info] Incomplete article head
 # Context needed before:
-1) [[Formal Languages]]
-2) [[Hierarchies]]
+1) [[Hierarchies]]
+2) [[Formal Languages]]
+3) [[Automata]]
 # Knowledge sources
 * [Chomsky hierarchy wiki article](https://en.wikipedia.org/wiki/Chomsky_hierarchy)
 

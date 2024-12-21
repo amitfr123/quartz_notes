@@ -1,25 +1,25 @@
 ---
-title: Automatons
+title: Automata
 draft: false
-description: Summary on automata theory and different types of automatons
+description: Summary on automata theory and different types of automata
 ---
 # Context needed before:
 1) [[Set]]
 2) [[Formal Languages]]
 # Abstract Machines
-An `abstract machine` is a theoretical model used to analyse how a computer works. Abstract machines are similar to mathematical functions as they receive an input and produce an output based on predefined rules.
-They are called `abstract` as they ignore hardware, and `machines` because they perform step by step execution typically characterized by changes of state.
+An abstract machine is a theoretical model used to analyse how a computer works. Abstract machines are similar to mathematical functions as they receive an input and produce an output based on predefined rules.
+They are called **abstract** as they ignore hardware, and **machines** because they perform step by step execution typically characterized by changes of state.
 
 ## Deterministic vs Non-Deterministic
-`Deterministic abstract machines` are models that for a given input will always produce the same output is the same manner (there is no randomness or variation). 
-`Non-Deterministic abstract machines` are models that for a given input may produce a different outputs or take several different paths to produce the same output.
+Deterministic abstract machines are models that for a given input will always produce the same output is the same manner (there is no randomness or variation). 
+Non-Deterministic abstract machines are models that for a given input may produce a different outputs or take several different paths to produce the same output.
 
 # Model of Computation
-A `module of computation` is a module that describes hos an output of a mathematical function is computed given an output.
+A module of computation is a module that describes hos an output of a mathematical function is computed given an output.
 # Automaton Definition
-Automata are a subset of `abstract machines` that are "self operating" and they are also a `modules of computation`.
+Automata are a subset of abstract machines that are "self operating" and they are also a modules of computation.
 ## Formal definition
-`Automaton` $M$ can be represented by $M = (\Sigma,\Gamma,Q,\delta,\lambda)$.
+Automaton $M$ can be represented by $M = (\Sigma,\Gamma,Q,\delta,\lambda)$.
 * $\Sigma$ - finite set of symbols called the input alphabet.
 * $\Gamma$ - finite set of symbols called the output alphabet.
 * $Q$ - set of states.
@@ -27,18 +27,22 @@ Automata are a subset of `abstract machines` that are "self operating" and they 
 * $\lambda$ - next output function $\lambda : Q \times \Sigma \rightarrow \Gamma$ that maps state and input pairs to outputs.
 This definition does not explicitly define the starting state $q_{0}$ and assume that it is defined within $\delta$. If we want to explicitly define $q_{0}$ we can use the definition $M = (\Sigma,\Gamma,Q, q_{0},\delta,\lambda)$.
 ## Acceptors (Recognizers)
-Common uses of `automata` are accept/reject functions. For any given input the there is a binary output based on the final state. The generic definition of this types of `automata` is $M = (\Sigma,Q,q_{0},F,\delta)$ where:
+Common uses of automata are accept/reject functions. For any given input the there is a binary output based on the final state. The generic definition of this types of automata is $M = (\Sigma,Q,q_{0},F,\delta)$ where:
 * $q_{0}$ - initial state.
 * $F$ - set of accepting states.
-**When the `automaton` $M$ is used to accept a language $L$ it is commonly denoted $L(M)$.**
+**When the automaton $M$ is used to accept a language $L$ it is commonly denoted $L(M)$.**
+## $\epsilon$ Moves
+When constructing [[#Deterministic vs Non-Deterministic|non-deterministic]] automata we can redefine the automaton to allow changes of states without "consuming" a symbol from out input. This can be done by redefining $\delta$ to $\delta : Q \times (\Sigma\cup{\epsilon}) \rightarrow Q$.
+### $\epsilon$ Closure
+$\epsilon$ closure for state q is the set of states which can be reached from q using only $\epsilon$ moves. It is denoted by: $E(q)$, $CL^\epsilon(q)$.
 
 # Closure Properties
-Let language $L_{1}$ be accepted by `acceptor automaton` $M$, and $O$ an operation that can be performed on a language. 
+Let language $L_{1}$ be accepted by acceptor automaton $M$, and $O$ an operation that can be performed on a language. 
 If $L_2$ the result of $O(L_{1})=L_{2}$ is accepted by $M$ then it is said that $M$ is closed under $O$.
 
 # Product Construction
 ## Formal Definition
-Let 2 `acceptor automata` $M_{1} = (\Sigma,Q_{1},q_{0}\in{Q_{1}},F_{1},\delta _{1})$ that accepts $L1$ and $M_{2} = (\Sigma,Q_{2},q_{0}\in{Q_{2}},F_{2},\delta _{2})$ that accept $L2$. `Product automaton` $M$ of $M_{1}$ and $M_{2}$ is defined:
+Let 2 acceptor automata $M_{1} = (\Sigma,Q_{1},q_{0}\in{Q_{1}},F_{1},\delta _{1})$ that accepts $L1$ and $M_{2} = (\Sigma,Q_{2},q_{0}\in{Q_{2}},F_{2},\delta _{2})$ that accept $L2$. Product automaton $M$ of $M_{1}$ and $M_{2}$ is defined:
 $$
 M=(\Sigma,Q,(q_{0}\in{Q_{1}}, q_{0}\in{Q_{2})},F,\delta)
 $$
@@ -47,12 +51,12 @@ where:
 * $c\in{\Sigma}$
 * $q_{i}\in{Q_{1}}$, $q_{j}\in{Q_{2}}$
 * $\delta$ - $\delta : ((Q_{1}, Q_{2}) \times \Sigma) \rightarrow (Q_{1},Q_{2})$
-	* $\delta((q_{i},q_{j}), c)=(\delta _{1}(q{i}, c), \delta _{2}(q_{j}, c))$
+	* $\delta((q_{i},q_{j}), c)=(\delta _{1}(q_{i}, c), \delta _{2}(q_{j}, c))$
 * $F$ - is the accepting set depending on the product we want.
 	* To recognize $L_{1}\cup{L_{2}}$ the accepting set will be $F=(F_{1}\times{Q_{2}})\cup{(F_{2}\times{Q_{1}})}$
 	* To recognize $L_{1}\cap{L_{2}}$ the accepting set will be $F=F_{1}\times{F_{2}}$
 
-# Automaton Types
+# Automata Types
 ## Finite State Automaton (FSA)
 When an `automaton` set of state ($Q$) is finite it is called a `finite state automaton (FSA)` or `finite state machine (FSM)`.
 There are 2 types of `FSA`:
@@ -125,6 +129,23 @@ bool is_mult_of_3(bool* bit_array, unsigned array_size) {
 `NFSA` (also called `NFA`,`NFM`,`NFSM`) is type of `FSA` that is [[#Deterministic vs Non-Deterministic|non-deterministic]].
 #### NFSA Acceptor Formal Definition
 `NFSA` `acceptor` $M$ can be represented by $M = (\Sigma,Q,q_{0},F,\delta)$ where $\delta$ is redefined as $\delta : Q \times \Sigma \rightarrow P(Q)$  ($P(Q)$ is a [[Set#Powerset|powerset]] of $Q$). This means that when calculating the next state there could be multiple options.
+##### NFSA $\epsilon$ moves
+It should be noted that any `NFSA` that uses $\epsilon$ moves can be reconstructed to not contain $\epsilon$ moves. I.e. for $L(M_{\epsilon})$ where `automaton` $M_{\epsilon}$ uses $\epsilon$ moves there is an `automaton` $M$ that does not contain $\epsilon$ moves that can accept $L$. 
+This is done by changing $\delta_{\epsilon}$ to $\delta$:
+$$
+\delta(q,c\in{\Sigma})=\bigcup_{q'\in{CL^{\epsilon}(q)}}CL^{\epsilon}(\delta_{\epsilon}(q',c))
+$$
+$F_{\epsilon}$ is also changed to F:
+$$
+\displaylines{
+F = 
+\begin{cases}
+F_{\epsilon}\cup{\{q_{0}\}} & CL^{\epsilon}(q_{0})\cap{F_{\epsilon}}\ne \emptyset \\
+F_{\epsilon} & \text{otherwise}
+\end{cases}
+}
+$$
+
 #### Powerset Construction
 `Powerset construction` is a standard method to convert `NFSA` to `DFSA`. Using this method any `NFSA` can be expressed instead using a `DFSA`.
 Here are the steps of the algorithm:
@@ -138,7 +159,8 @@ Here are the steps of the algorithm:
 ##### Example
 For $L(M)$ with $\Sigma = \{a,b\}$ contain all of the strings that end with ab:
 $$L(M) = \{s \cdot ab|s\in{\Sigma^{*}}\}$$
-`NFSA automaton`:![[powerset_construction_nfsa.png]]
+`NFSA automaton`:
+![[powerset_construction_nfsa.png]]
 Can be changed to a `DFSA`:
 ![[powerset_construction_dfsa.png]]
 ### Closure Properties
