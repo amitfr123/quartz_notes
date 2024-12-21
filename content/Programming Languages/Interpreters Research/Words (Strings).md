@@ -35,7 +35,7 @@ $$
 \epsilon^R = \epsilon
 }
 $$
-## Length (cardinality)
+## Length (Cardinality)
 If $W$ is a word then $n$ is called the length (cardinality) of $W$ if n is equal to the number of `symbols` within $W$.
 $$
 \displaylines{

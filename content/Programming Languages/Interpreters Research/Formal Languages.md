@@ -4,6 +4,8 @@ draft: false
 description: Summary on formal languages
 ---
 > [!info] Incomplete article head
+# Context needed before:
+1) [[Set]]
 # Knowledge sources
 * [Formal language wiki article](https://en.wikipedia.org/wiki/Formal_language)
 * [Regular language wiki article](https://en.wikipedia.org/wiki/Regular_language)
@@ -19,9 +21,8 @@ description: Summary on formal languages
 * Symbol - the basic building block, typically a character or a digit.
 * Alphabet - a finite set of symbols.
 * Words (strings) - a finite set of a specific alphabet symbols. See [[Words (Strings)]] for more information.
-* Formal language - a set of assembled strings (derived from the same alphabet) according to a specific set of rules.
+* Formal language - a set of assembled words (derived from the same alphabet) according to a specific set of rules.
 * Formal grammar - describes which words are valid according to the language's syntax (rules).
-
 Here are a couple of examples for this definitions:
 
 |        language        |  symbols  |  valid words   | invalid words |     |
@@ -54,22 +55,23 @@ When using formal languages we have a set of basic operations:
 * String homomorphism[^3]
 * Inverse string homomorphism[^3]
 * Reversal
-### Closure Property
+### Closure Properties
 Closure means that if we take 2 formal languages from the same type ([[#Regular language|Regular]], [[#Context-free language(CFL)|Context free]],[[#Context-sensitive language(CSL)|Context sensitive]], [[#Recursively enumerable language(RE)|Recursively enumerable]]), and preform an operation on them the result of that operation is a new language of the same type.
 This is also called **Closed** under an operation.
 #### Closure Table
+Here is a table that describes the closure properties of different languages. **It is important to note that some of this properties are dependent on the language being finite**.
 
 | Operation\language          | Regular | Context free | Context sensitive | Recursively enumerable |
 | --------------------------- | ------- | ------------ | ----------------- | ---------------------- |
 | Union                       | Closed  | Closed       | Closed            | Closed                 |
-| Complement                  | Closed  | Not closed   | Not closed        | Not closed             |
+| Complement                  | Closed  | Not closed   | Closed            | Not closed             |
 | Intersection                | Closed  | Not closed   | Closed            | Closed                 |
-| Difference                  | Closed  | Not closed   | Not closed        | Not closed             |
+| Difference                  | Closed  | Not closed   | Closed            | Not closed             |
 | Concatenation               | Closed  | Closed       | Closed            | Closed                 |
 | Exponentiation              | Closed  | Closed       | Closed            | Closed                 |
 | Kleene star                 | Closed  | Closed       | Closed            | Closed                 |
 | Kleene plus                 | Closed  | Closed       | Closed            | Closed                 |
-| String homomorphism         | Closed  | Closed       | Closed            | Closed                 |
+| String homomorphism         | Closed  | Closed       | Not closed        | Closed                 |
 | Inverse string homomorphism | Closed  | Closed       | Closed            | Closed                 |
 | Reversal                    | Closed  | Closed       | Closed            | Closed                 |
 
@@ -106,7 +108,7 @@ L^{0} = {\epsilon} \\
 L^{n+1} = L^{n+1} \cdot L
 }
 $$
-### Kleene star (Closure R* )
+### Kleene Star (Closure R*  or Kleene Closure)
 If $L$ is formal language, then $L^{*}$ is a formal language comprised of all the possible concatenation 0 or more words.
 $$
 \displaylines{
@@ -117,7 +119,7 @@ L^{*} &= \bigcup _{i\geq 0}L^{i} \\
 }
 $$
 **It should be noted that $\emptyset^{*}=\{\epsilon\}$.**
-### Kleene plus
+### Kleene Plus
 If $L$ is formal language, then $L^{+}$ is a formal language comprised of all the possible concatenation 1 or more words.
 $$
 \displaylines{
@@ -128,10 +130,10 @@ L^{+} &= \bigcup _{i\geq 1}L^{i} \\
 }
 $$
 **It should be noted that $\emptyset^{+}=\{\}$.**
-### String homomorphism
+### String Homomorphism[^3]
 If $L$ is a formal language and $h$ is a homomorphism on its alphabet then $L_{h}=h(L) = \{h(w) | w\in L\}$ is also a formal language.
 
-### Inverse string homomorphism
+### Inverse String Homomorphism[^3]
 If $L_{h}$ is a formal language and is the result of applying $h$ (a homomorphism) on an alphabet of a formal language then $L=h^{-1}(L_{h}) = \{w | h(w)\in L\}$ is also a formal language.
 
 ### Reversal
@@ -165,7 +167,7 @@ Regular language is a class of formal languages that can be defined using regula
 Regular languages help us solve 2 problems:
 * Specification - how do we have a complete definition for a formal language.
 * Recognition - given language **L** and a word **W** how do we check if: $$W\in{L}$$
-**It should be noted that tools like Yacc Bison and Flex may be used to create regular languages for programming.**
+**It should be noted that tools like Yacc,Bison and Flex may be used to create regular languages for programming.**
 
 ## Regular grammar
 Regular grammar is a grammar that is **right-regular** or **left-regular** and it requires:
@@ -207,7 +209,6 @@ A popular way for context-free grammar notation is [BNF](https://en.wikipedia.or
 Context-sensitive languages are languages that are generated by [[#Context-sensitive grammar]].
 ## Context-sensitive grammar(CSG)
 Context-sensitive grammar is defined as a formal grammar whose production rules can be surrounded by a context of terminal[^2] and non-terminal symbols[^1].
-
 It is easier to explain it as a distinction from [[#Context-free grammar]] as instead of each rule forms $A\to a$ there is a context element described as $aAb\to a\lambda b$ where $a$ and $b$ and $\lambda$ are strings comprised of terminal[^2] and non-terminal symbols[^1] ($\lambda$ may not be $\epsilon$). This means that the rule only applies if the context surrounding $A$ is correct.
 
 ### Example of a context-sensitive grammar
@@ -257,4 +258,4 @@ $$
 # Footnotes
 [^1]: Non-terminal symbols - symbols that can be replaced also called syntactic variables.
 [^2]: Terminal symbols - symbols that may appear in the output of production rules and cannot be changed by the rules of the grammar this symbols comprise the alphabet.
-[^3]: String homomorphism means that each character in the alphabet is replaced by a single string.
+[^3]:String homomorphism means a function that maps each character in the alphabet to a single string.
